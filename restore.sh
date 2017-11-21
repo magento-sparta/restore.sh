@@ -369,7 +369,7 @@ function debug()
 }
 function getOrigHtaccess()
 {
-    cp ${MAGENTOROOT}.htaccess ${MAGENTOROOT}.htaccess.merchant
+    if [ -f ${MAGENTOROOT}.htaccess ] ; then cp ${MAGENTOROOT}.htaccess ${MAGENTOROOT}.htaccess.merchant ; fi
     cat << 'EOF' > .htaccess
 ############################################
 ## uncomment these lines for CGI mode
@@ -625,7 +625,7 @@ EOF
 
 function getOrigLocalXml()
 {
-    cp ${LOCALXMLPATH} ${LOCALXMLPATH}.merchant
+    if [ -f ${LOCALXMLPATH} ] ; then cp ${LOCALXMLPATH} ${LOCALXMLPATH}.merchant ; fi
     cat << 'EOF' > ${LOCALXMLPATH}
 <?xml version="1.0"?>
 <!--
@@ -698,7 +698,7 @@ EOF
 
 function getOrigEnterpriseXml()
 {
-    cp ${MAGENTOROOT}app/etc/enterprise.xml ${MAGENTOROOT}app/etc/enterprise.xml.merchant
+    if [ -f ${MAGENTOROOT}app/etc/enterprise.xml ] ; then cp ${MAGENTOROOT}app/etc/enterprise.xml ${MAGENTOROOT}app/etc/enterprise.xml.merchant ; fi
     cat << 'EOF' > ${MAGENTOROOT}app/etc/enterprise.xml
 <?xml version='1.0' encoding="utf-8" ?>
 <!--
@@ -750,7 +750,7 @@ EOF
 
 function getOrigIndex()
 {
-    cp ${MAGENTOROOT}index.php ${MAGENTOROOT}index.php.merchant
+    if [ -f ${MAGENTOROOT}index.php ] ; then cp ${MAGENTOROOT}index.php ${MAGENTOROOT}index.php.merchant ; fi
     cat << 'EOF' > index.php
 <?php
 /**
